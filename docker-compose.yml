@@ -1,0 +1,13 @@
+version: "2" # docker-compose.yml files can either be version 1,2,2.1 or 3.
+  services: # define services
+    db: # service name
+      image: postgres:latest # describes image the db service will use.
+    web: # service name
+      build: . # configuration option to be run at build time.
+      command: python manage.py runserver [::]:8000 # Override the default command.
+      volumes:
+        - .:/scripts # mounts . in host to /scripts in container.
+      ports: # expose ports [HOST:CONTAINER]
+        - "8000:8000"
+      links: # Link to containers in another service.
+        - db:db
