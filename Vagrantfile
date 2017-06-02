@@ -35,5 +35,4 @@ Vagrant.configure("2") do |config|
         echo "source /usr/local/bin/virtualenvwrapper.sh" >> /home/ubuntu/.bashrc
     fi
   SHELL
-
 end
